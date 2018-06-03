@@ -24,7 +24,7 @@ simulation <- function(n, nmc, cop, U, n0, alpha, nu, seed) {
         
         # Specialized
         estim3 <- online_copula_density_specialized(u, X, n0, alpha, nu)
-        err3 <- estim3[[1]] - cbind(dCopula(u, cop)) %*% rep(1, n)
+        err3 <- estim3 - cbind(dCopula(u, cop)) %*% rep(1, n)
         mse3[i, ] <- colMeans(err3^2)
         
         # update progress bar
