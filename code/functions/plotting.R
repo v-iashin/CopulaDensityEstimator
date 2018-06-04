@@ -1,8 +1,24 @@
 library(latex2exp)
 
 plot_results <- function(mse1, mse2, mse3, title, theta, pos, save_plot, filename) {
-    
+    # A wrapper for the plotting function tha decided whether to save a plot and 
+    # at what path. Plots the results (mse) for each of the three bandwidths. 
+    # Args:
+    #   mse1, mse2, mse3: Arrays (nmc, n). Results of simulations.
+    #   title: TeX. A formatted title for a plot.
+    #   theta: float. A parameter of the copula that is used in the experiment.
+    #   pos: String (for ex: 'topright' or 'bottomleft'): Position of the legend.
+    #   save_plot: Boolean. Whether to save plot.
+    #   filename: String. If save_plot is TRUE save plot to the filename.
+    # Returns: nothing
+     
     plot_results_ <- function(mse1, mse2, mse3, title, theta, pos) {
+        # Plots the results (mse) for each of the three bandwidths.
+        # Args:
+        #   See plot_results
+        # Returns: nothing
+        
+        # Dimensions and limits for the plot
         n0 <- sum(is.na(colMeans(mse1)))
         nmc <- dim(mse1)[1]
         nmax <- dim(mse1)[2]
@@ -10,12 +26,20 @@ plot_results <- function(mse1, mse2, mse3, title, theta, pos, save_plot, filenam
         min_mse <- 0
         
         # COLORS
+        # Red, Green, & Blue 
+        # ColMain1 <- rgb(0.3, 0.6, 0.7)
+        # ColCE1 <- rgb(0.3, 0.6, 0.7, alpha = 0.3)
+        # ColMain2 <- rgb(0.7, 0.3, 0.3)
+        # ColCE2 <- rgb(0.7, 0.3, 0.3, alpha = 0.3)
+        # ColMain3 <- rgb(0.0, 0.8, 0.4)
+        # ColCE3 <- rgb(0.0, 0.8, 0.4, alpha = 0.3)
+        # Black & White
         ColMain1 <- rgb(0.1, 0.1, 0.1)
         ColCE1 <- rgb(0.1, 0.1, 0.1, alpha = 0.3)
-        ColMain2 <- rgb(0.1, 0.1, 0.1)
-        ColCE2 <- rgb(0.1, 0.1, 0.1, alpha = 0.3)
-        ColMain3 <- rgb(0.1, 0.1, 0.1)
-        ColCE3 <- rgb(0.1, 0.1, 0.1, alpha = 0.3)
+        ColMain2 <- ColMain1
+        ColCE2 <- ColCE1
+        ColMain3 <- ColMain1
+        ColCE3 <- ColCE1
         
         # CONFIDENCE INTERVALS (95 %)
         means1 <- colMeans(mse1)
@@ -71,6 +95,7 @@ plot_results <- function(mse1, mse2, mse3, title, theta, pos, save_plot, filenam
         plot_results_(mse1, mse2, mse3, title, theta, pos)
         dev.off()
     }
+    
     else {
         plot_results_(mse1, mse2, mse3, title, theta, pos)
     }
