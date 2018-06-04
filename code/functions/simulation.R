@@ -1,9 +1,25 @@
-simulation <- function(n, nmc, cop, U, n0, alpha, nu, seed) {
+simulation <- function(n, nmc, cop, n0, alpha, nu, seed) {
+    # Runs Monte-Carlo simulations for three different copula density 
+    # estimators. Returns a list with calculated log of mean squared errors 
+    # between theoretical and estimated values for each of the three bandwidths.
+    # Args:
+    #   n: Int. Number of generated observations.
+    #   nmc: Int. Number of Monte-Carlo 
+    #   cop: Copula. Copula class.
+    #   n0: Int. Number of observations for the initialization.
+    #   alpha: Float. Parameter of `mu`.
+    #   nu: Positive float (or Int): Parameter of `a`.
+    # Returns:
+    #   List. A log of mean squared errors for each of the three bandwidths.
+    
+    # placeholders
     mse1 <- matrix(0, nmc, n)
     mse2 <- matrix(0, nmc, n)
     mse3 <- matrix(0, nmc, n)
     
+    # set seed
     set.seed(seed)
+    
     # start the progress bar
     pb <- txtProgressBar(min = 1, max = nmc, style = 3)
     
