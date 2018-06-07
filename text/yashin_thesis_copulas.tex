@@ -145,17 +145,17 @@
 	\end{align}
 	where $ \alpha $ is a positive number that defines a step size. Then, let us assume that we do not know the analytical expression for $ f $ and only have noisy observations $ f(x_n) + \varepsilon_n $ where $ \mathbb{E}[\varepsilon_n] = 0 $ for each $ n \in 1\dots N $. So, $ f(x_n) $ can be replaced by averaging many noisy observations such that
 	\begin{align}
-		f(x_n) &\approx \frac{1}{m} \sum_{i=1}^{m} \big(f(x_i)+u_i\big) \\
-		&\equiv \frac{1}{m} \sum_{i=1}^{m} F(x_i, u_i).
+		f(x_n) &\approx \frac{1}{m} \sum_{i=1}^{m} \big(f(x_i)+\varepsilon_i\big) \\
+		&\equiv \frac{1}{m} \sum_{i=1}^{m} F(x_i, \varepsilon_i).
 	\end{align}
 	Then, \eqref{eq:for_robbins} can be rewritten in the following way
 	\begin{align}
-		x_{n} = x_{n-1} - \frac{\alpha}{m}\sum_{i=1}^{m}F(x_i, u_i).
+		x_{n} = x_{n-1} - \frac{\alpha}{m}\sum_{i=1}^{m}F(x_i, \varepsilon_i).
 	\end{align}
 	
 	Note that this algorithm is obviously inefficient as it is required to run it $ m $ times for every $ n $. To solve this problem, \textcite{Robbins1951} suggested to use the following
 	\begin{align}
-		x_n = x_{n-1} - \alpha_n F(x_n, u_n), 
+		x_n = x_{n-1} - \alpha_n F(x_n, \varepsilon_n), 
 	\end{align}
 	where $ \alpha_n $ is the sequence of positive numbers that converge to 0 such that $ \sum_n\alpha_n = \infty $ and $ \sum_n\alpha_n^2 < \infty $. Using the Robbins-Monro algorithm we can derive a recursive estimator of a quantile. 
 	
