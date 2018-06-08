@@ -180,7 +180,7 @@
 		f^{u_j}_{j, n} &= \bigg(1- \frac{1}{n}\bigg) f^{u_j}_{j, n-1} + \frac{1}{n} K^{u_j}_{h_{j, n}}\big(Q^{u_j}_{n-1} - X_{n, j}\big) \label{eq:quantile_1} \\
 		a^{u_j}_{j, n} &= \max\Big[\mu_{j, n}, \min\big[f^{u_j}_{j, n}, \nu \ln(n+1)\big]\Big] \label{eq:quantile_2} \\
 		%Q^{u_j}_n &= Q^{u_j}_{i-1} + \frac{1}{n\kappa a^{u_j}_n}\bigg[u_j - \big[X_{n, j}\leq Q^{u_j}_{n-1}\big]\bigg], \label{eq:quantile_3}
-		Q^{u_j}_n &= Q^{u_j}_{n-1} + \frac{1}{n a^{u_j}_{j, n}}\Bigg[u_j - \mathbf{1}\big(X_{n, j}\leq Q^{u_j}_{n-1}\big)\Bigg], \label{eq:quantile_3}
+		Q^{u_j}_n &= Q^{u_j}_{n-1} + \frac{1}{n a^{u_j}_{j, n}}\Big[u_j - \mathbf{1}\big(X_{n, j}\leq Q^{u_j}_{n-1}\big)\Big], \label{eq:quantile_3}
 	\end{align}
 	where $ f^{u_j}_{j, n} $ is the recursive estimator for the marginal on the $ j $-th ($ j=1\dots d $) component of the joint density $ f $. In addition, $ K_h(x) := h^{-1}K(x/h) $ where $ K $ is a symmetric, univariate kernel evaluated at given points of grid, and $ h $ is the bandwidth for the kernel $ K $. Note that, $ K = \int_{\mathbb{R}}K(x)\text{d}x=1 $, $ \mu_{j, n} $ and $ \nu $ are some positive constants.
 	
