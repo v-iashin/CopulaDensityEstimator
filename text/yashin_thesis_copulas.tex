@@ -145,17 +145,17 @@
 	\end{align}
 	where $ \alpha $ is a positive number that defines a step size. Then, let us assume that we do not know the analytical expression for $ f $ and only have noisy observations $ f(x_n) + \varepsilon_n $ where $ \mathbb{E}[\varepsilon_n] = 0 $ for each $ n \in 1\dots N $. So, $ f(x_n) $ can be replaced by averaging many noisy observations such that
 	\begin{align}
-		f(x_n) &\approx \frac{1}{m} \sum_{i=1}^{m} \big(f(x_i)+u_i\big) \\
-		&\equiv \frac{1}{m} \sum_{i=1}^{m} F(x_i, u_i).
+		f(x_n) &\approx \frac{1}{m} \sum_{i=1}^{m} \big(f(x_i)+\varepsilon_i\big) \\
+		&\equiv \frac{1}{m} \sum_{i=1}^{m} F(x_i, \varepsilon_i).
 	\end{align}
 	Then, \eqref{eq:for_robbins} can be rewritten in the following way
 	\begin{align}
-		x_{n} = x_{n-1} - \frac{\alpha}{m}\sum_{i=1}^{m}F(x_i, u_i).
+		x_{n} = x_{n-1} - \frac{\alpha}{m}\sum_{i=1}^{m}F(x_i, \varepsilon_i).
 	\end{align}
 	
 	Note that this algorithm is obviously inefficient as it is required to run it $ m $ times for every $ n $. To solve this problem, \textcite{Robbins1951} suggested to use the following
 	\begin{align}
-		x_n = x_{n-1} - \alpha_n F(x_n, u_n), 
+		x_n = x_{n-1} - \alpha_n F(x_n, \varepsilon_n), 
 	\end{align}
 	where $ \alpha_n $ is the sequence of positive numbers that converge to 0 such that $ \sum_n\alpha_n = \infty $ and $ \sum_n\alpha_n^2 < \infty $. Using the Robbins-Monro algorithm we can derive a recursive estimator of a quantile. 
 	
@@ -180,7 +180,7 @@
 		f^{u_j}_{j, n} &= \bigg(1- \frac{1}{n}\bigg) f^{u_j}_{j, n-1} + \frac{1}{n} K^{u_j}_{h_{j, n}}\big(Q^{u_j}_{n-1} - X_{n, j}\big) \label{eq:quantile_1} \\
 		a^{u_j}_{j, n} &= \max\Big[\mu_{j, n}, \min\big[f^{u_j}_{j, n}, \nu \ln(n+1)\big]\Big] \label{eq:quantile_2} \\
 		%Q^{u_j}_n &= Q^{u_j}_{i-1} + \frac{1}{n\kappa a^{u_j}_n}\bigg[u_j - \big[X_{n, j}\leq Q^{u_j}_{n-1}\big]\bigg], \label{eq:quantile_3}
-		Q^{u_j}_n &= Q^{u_j}_{n-1} + \frac{1}{n a^{u_j}_{j, n}}\Bigg[u_j - \mathbf{1}\big(X_{n, j}\leq Q^{u_j}_{n-1}\big)\Bigg], \label{eq:quantile_3}
+		Q^{u_j}_n &= Q^{u_j}_{n-1} + \frac{1}{n a^{u_j}_{j, n}}\Big[u_j - \mathbf{1}\big(X_{n, j}\leq Q^{u_j}_{n-1}\big)\Big], \label{eq:quantile_3}
 	\end{align}
 	where $ f^{u_j}_{j, n} $ is the recursive estimator for the marginal on the $ j $-th ($ j=1\dots d $) component of the joint density $ f $. In addition, $ K_h(x) := h^{-1}K(x/h) $ where $ K $ is a symmetric, univariate kernel evaluated at given points of grid, and $ h $ is the bandwidth for the kernel $ K $. Note that, $ K = \int_{\mathbb{R}}K(x)\text{d}x=1 $, $ \mu_{j, n} $ and $ \nu $ are some positive constants.
 	
@@ -274,7 +274,7 @@
 	
 	A proof can be found in \textcite{Camirand}. The authors provide a more general proof of the Theorems~\ref{thm:asym_norm_joint} and \ref{thm:asym_squared_error}.
 	
-	Once we have an algorithm to estimate both the joint distribution and product of marginal distributions with almost sure convergence described in Theorem~\ref{thm:asym_norm_joint}, we now may present, to our best knowledge, for the first time the recursive non-parametric estimator for the copula density function
+	Once we have an algorithm to estimate both the joint distribution and product of marginal distributions with almost sure convergence described in Theorem~\ref{thm:asym_norm_joint}, we now may present, to the best of our knowledge, for the first time the recursive non-parametric estimator for the copula density function
 	\begin{align}
 		c_n &= \frac{f^{\mathbf{u}}_n}{f^{u_1}_{1, n} \dots  f^{u_d}_{d, n}}. \label{eq:copula_d}
 	\end{align}
@@ -424,7 +424,7 @@
 	
 	\section*{Acknowledgements}
 	
-	The author of this master thesis is grateful to his university Higher School of Economics for the provided opportunity to be an exchange student and be able to spend one semester in another campus where his scientific supervisor works and lives. The author also thanks the university stuff including office managers Maria Neklyudova as well as Ekaterina Pavlova and Ilona Yakovleva for their support and responsiveness. Special gratitude to Felix Camirand (Ph.\,D.) from University of Melbourne who has provided an early version of his paper.
+	The author of this master thesis is grateful to his university Higher School of Economics for the provided opportunity to be an exchange student and be able to spend one semester in another campus where his scientific supervisor works and lives. The author also thanks the university staff including office managers Maria Neklyudova as well as Ekaterina Pavlova and Ilona Yakovleva for their support and responsiveness. Special gratitude to Felix Camirand (Ph.\,D.) from University of Melbourne who has provided an early version of his paper.
 	
 	I would also like to thank the uncountable number of contributors of \href{https://R-project.org/}{\textbf{R}} package and the creators of the \textbf{R} library \href{https://cran.r-project.org/web/packages/copula/copula.pdf}{\texttt{copula}}. The contributors of the \LaTeX~typesetting system are also gratefully acknowledged. 
 	
