@@ -230,17 +230,6 @@
 			
 			\end{frame}
 			
-		\subsubsection{Independent Copula}
-			\begin{frame}
-				\frametitle{\insertsubsubsection}
-				
-				\begin{flushleft}
-					\includegraphics[width=0.4\linewidth]{plots/numerical_results/frank0}
-					\includegraphics[width=0.5\linewidth]{../text/plots/experiment_results/frank0}
-				\end{flushleft}
-
-			\end{frame}
-			
 		\subsubsection{Student Copula ($ \theta = 0.5 $)}
 			\begin{frame}
 				\frametitle{\insertsubsubsection}
@@ -258,7 +247,7 @@
 				
 				\begin{enumerate}
 					\item The proposed recursive non-parametric estimator works of copula density works;
-					\item 
+					\item The algorithm is linear.
 				\end{enumerate}
 				
 			\end{frame}	
@@ -300,24 +289,22 @@
 	\end{frame}
 \section{}
 	
-\section{Appendix}
-	\subsection{}
-	
+\section{Appendix}	
 		\subsubsection{Appendix outline}
 			\begin{frame}
 				\frametitle{\insertsubsubsection}
 				
 				\begin{enumerate}
-					\item \hyperlink{robMonro}{\color{blue}Quantile estimation using Robbins-Monro procedure}
-					\item \hyperlink{bandwidth}{\color{blue}How to select the bandwidths?}
+					\item \hyperlink{robMonro}{\color{blue} Quantile estimation using Robbins-Monro procedure}
+					\item \hyperlink{bandwidth}{\color{blue} How to select the bandwidths?}
 					\item \hyperlink{numResults}{\color{blue} Other numerical experiments}
 				\end{enumerate}
 				
 			\end{frame}
 	
 		\subsubsection{Robbins-Monro procedure}\label{robMonro}
-			\begin{frame}[label={important}]
-				\frametitle{\insertsubsubsection}
+			\begin{frame}
+				\frametitle{Robbins-Monro procedure}
 				
 				\onslide<1-> A root of unknown function $ h $ using only noisy observations can be found as follows\footcite{Robbins1951}
 				\begin{align}
@@ -399,7 +386,18 @@
 				In case of marginals $ d=1 $.
 				
 			\end{frame}
-			
+		
+		\subsubsection{Independent Copula}
+			\begin{frame}
+				\frametitle{\insertsubsubsection}
+				
+				\begin{flushleft}
+					\includegraphics[width=0.4\linewidth]{plots/numerical_results/frank0}
+					\includegraphics[width=0.5\linewidth]{../text/plots/experiment_results/frank0}
+				\end{flushleft}
+				
+			\end{frame}
+		
 		\subsubsection{Student Copula ($ \theta = 0.0 $)}\label{numResults}
 			\begin{frame}
 				\frametitle{\insertsubsubsection}
