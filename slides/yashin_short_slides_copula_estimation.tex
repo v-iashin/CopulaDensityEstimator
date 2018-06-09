@@ -209,10 +209,7 @@
 				\begin{align}
 					c_n &= \frac{f^{\mathbf{u}}_n}{\prod_{j=1}^{d}f^{u_j}_{j, n}}
 				\end{align}
-				to the best of our knowledge, is the first recursive non-parametric estimator of the copula density $ c(\cdot) $\\[-4ex]
-				\begin{align}
-					c = \frac{f}{\prod_{j=d}^{d}f_j}.
-				\end{align}
+				to the best of our knowledge, is the first recursive non-parametric estimator of the copula density $ c(\cdot) $.
 				
 			\end{frame}
 	
@@ -225,9 +222,8 @@
 				\begin{enumerate}
 					\item Select a copula which properties are known;
 					\item Sample data ($ \mathbf{X} $) from the selected copula distribution;
-					\item Choose a grid of points $ \mathbf{u} $ to estimate copula on. \\For example, $ (0.1, \dots, 0.9)\times(0.1, \dots, 0.9) $;
 					\item Estimate values of the copula density at each point of the selected grid $ \mathbf{u} $;
-					\item Calculate $ \text{MSE}_n(c_n(\cdot), c(\cdot)) $ at each $ n $.\\[1em]
+					\item Estimate MSE.\\[1em]
 				\end{enumerate}
 				
 				Here we use $ n=5000 $ and number of Monte-Carlo simulations is $ 500 $.
@@ -262,8 +258,7 @@
 				
 				\begin{enumerate}
 					\item The proposed recursive non-parametric estimator works of copula density works;
-					\item<2-> The usage of the constant bandwidths is a good choice;
-					\item<3-> Though, data-dependent bandwidths are more reliable in complicated cases.
+					\item 
 				\end{enumerate}
 				
 			\end{frame}	
@@ -285,7 +280,7 @@
 	\begin{frame}
 		\frametitle{The author sincerely acknowledges}
 		
-		The university Higher School of Economics for provided opportunity to be an exchange student this semester to meet his professor. \\[1em]
+		The university Higher School of Economics for providing an opportunity to be an exchange student this semester to meet his professor. \\[1em]
 		
 		The university staff inc. office managers Maria Neklyudova as well as Ekaterina Pavlova and Ilona Yakovleva for their support and responsiveness. \\[1em]
 		
@@ -437,5 +432,17 @@
 				\end{flushleft}
 				
 			\end{frame}
+			
+		\subsubsection{Numerical results}
+			\begin{frame}
+				\frametitle{\insertsubsubsection}
+				
+				\begin{enumerate}
+					\item The proposed recursive non-parametric estimator works of copula density works;
+					\item<2-> The usage of the constant bandwidths is a good choice;
+					\item<3-> Though, data-dependent bandwidths are more reliable in complicated cases.
+				\end{enumerate}
+				
+			\end{frame}	
 	
 \end{document}
